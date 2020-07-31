@@ -31,6 +31,7 @@ pip install -r requirments
 TEXT=data/cnndm41.tokenized.en-de
 
 python length.py
+
 cp $TEXT/*.len* data-bin/cnndm41.tokenized.en-de
 
 mkdir -p checkpoints/fconv_cnndm41
@@ -45,6 +46,7 @@ The pretrained model can be downloaded from [here](https://drive.google.com/file
 TEXT=data/cnndm41.tokenized.en-de
 
 1. Gold Length
+
 cp $TEXT/*.len* data-bin/cnndm41.tokenized.en-de
 
 python generate.py data-bin/cnndm41.tokenized.en-de \
@@ -54,7 +56,9 @@ python generate.py data-bin/cnndm41.tokenized.en-de \
 
 
 2. Arbitrary Length
+
 python fortest.py 10 #10 is the desired length.
+
 python generate.py data-bin/cnndm41.tokenized.en-de \
  --save-path 4120lenParam --path checkpoints/fconv_cnndm41/checkpoint_best.pt \
  --batch-size 128 --beam 5 --max-source-positions 500 \
