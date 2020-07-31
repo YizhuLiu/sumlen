@@ -1,7 +1,7 @@
 # sumlen
 This code is for EMNLP 2018 paper: [Controlling Length in Abstractive Summarization Using a Convolutional Neural Network](https://www.aclweb.org/anthology/D18-1444/)
 
-In this paper, we propose an approach to constrain the summary length by extending a convolutional sequence to sequence model ([Paper]:https://arxiv.org/abs/1705.03122 , [Code(fairseq-py)]: https://github.com/pytorch/fairseq).
+In this paper, we propose an approach to constrain the summary length by extending a convolutional sequence to sequence model ([Paper](https://arxiv.org/abs/1705.03122), [Code(fairseq-py)](https://github.com/pytorch/fairseq)).
 
 citation:
 @inproceedings{DBLP:conf/emnlp/LiuLZ18,
@@ -23,8 +23,8 @@ Python version >= 3.6
 pip install -r requirments
 
 # Data Preprocessing
-1. We use CNN/Daily Mail as dataset and get train/valid/test sets according to [See et al. 2017]:https://github.com/abisee/cnn-dailymail. 
-   The preprocessed data can be downloaded from [here]:https://drive.google.com/file/d/1KjzKYhpsIwBKiNZx5x-NiYQabumY3qkY/view?usp=sharing .
+1. We use CNN/Daily Mail as dataset and get train/valid/test sets according to [See et al. 2017](https://github.com/abisee/cnn-dailymail). 
+   The preprocessed data can be downloaded from [here](https://drive.google.com/file/d/1KjzKYhpsIwBKiNZx5x-NiYQabumY3qkY/view?usp=sharing).
 2. python -u preprocess.py --source-lang en --target-lang de --trainpref $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test --destdir data-bin/cnndm41.tokenized.en-de --thresholdtgt 20 --thresholdsrc 20
 
 # Training
