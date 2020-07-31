@@ -6,10 +6,19 @@
 # can be found in the PATENTS file in the same directory.
 #
 
-from .cross_entropy import CrossEntropyCriterion
-from .label_smoothed_cross_entropy import LabelSmoothedCrossEntropyCriterion
+from .fairseq_decoder import FairseqDecoder
+from .fairseq_encoder import FairseqEncoder
+from .fairseq_incremental_decoder import FairseqIncrementalDecoder
+from .fairseq_model import FairseqModel
 
-__all__ = [
-    'CrossEntropyCriterion',
-    'LabelSmoothedCrossEntropyCriterion',
-]
+from . import fconv, lstm
+
+
+__all__ = ['fconv', 'lstm']
+
+arch_model_map = {}
+for model in __all__:
+    archs = locals()[model].get_archs()
+    for arch in archs:
+        assert arch not in arch_model_map, 'Duplicate model architecture detected: {}'.format(arch)
+        arch_model_map[arch] = model
