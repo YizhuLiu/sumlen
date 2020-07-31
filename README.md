@@ -1,5 +1,5 @@
 # sumlen
-This code is for EMNLP 2018 paper: [Controlling Length in Abstractive Summarization Using a Convolutional Neural Network]:https://www.aclweb.org/anthology/D18-1444/
+This code is for EMNLP 2018 paper: [![Controlling Length in Abstractive Summarization Using a Convolutional Neural Network]](https://www.aclweb.org/anthology/D18-1444/)
 
 In this paper, we propose an approach to constrain the summary length by extending a convolutional sequence to sequence model ([Paper]:https://arxiv.org/abs/1705.03122 , [Code(fairseq-py)]: https://github.com/pytorch/fairseq).
 
