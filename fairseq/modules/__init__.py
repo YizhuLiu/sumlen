@@ -6,19 +6,16 @@
 # can be found in the PATENTS file in the same directory.
 #
 
-from .fairseq_decoder import FairseqDecoder
-from .fairseq_encoder import FairseqEncoder
-from .fairseq_incremental_decoder import FairseqIncrementalDecoder
-from .fairseq_model import FairseqModel
+from .beamable_mm import BeamableMM
+from .conv_tbc import ConvTBC
+from .grad_multiply import GradMultiply
+from .learned_positional_embedding import LearnedPositionalEmbedding
+from .linearized_convolution import LinearizedConvolution
 
-from . import fconv, lstm
-
-
-__all__ = ['fconv', 'lstm']
-
-arch_model_map = {}
-for model in __all__:
-    archs = locals()[model].get_archs()
-    for arch in archs:
-        assert arch not in arch_model_map, 'Duplicate model architecture detected: {}'.format(arch)
-        arch_model_map[arch] = model
+__all__ = [
+    'BeamableMM',
+    'ConvTBC',
+    'GradMultiply',
+    'LearnedPositionalEmbedding',
+    'LinearizedConvolution',
+]
