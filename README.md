@@ -28,6 +28,7 @@ pip install -r requirments
 2. python -u preprocess.py --source-lang en --target-lang de --trainpref $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test --destdir data-bin/cnndm41.tokenized.en-de --thresholdtgt 20 --thresholdsrc 20
 
 # Training
+'''
 TEXT=data/cnndm41.tokenized.en-de
 
 python length.py
@@ -39,28 +40,29 @@ mkdir -p checkpoints/fconv_cnndm41
 CUDA_VISIBLE_DEVICES=0 python -u train.py data-bin/cnndm41.tokenized.en-de --lr 0.2 --clip-norm 0.1 --dropout 0.2 --max-tokens 4000 \
      --label-smoothing 0.1 --force-anneal 200 --save-dir checkpoints/fconv_cnndm41 --arch fconv_cnndm_en_de \
      --skip-invalid-size-inputs-valid-test --sample-without-replacement 3850 --max-source-positions 500 --max-target-positions 200
-
+'''
 The pretrained model can be downloaded from [here](https://drive.google.com/file/d/176l69rwqX19-JIpib9KBczGO6fvHibVh/view?usp=sharing)
 
 # Testing
+'''
 TEXT=data/cnndm41.tokenized.en-de
-
-1. Gold Length
-
+'''
+## Gold Length
+'''
 cp $TEXT/*.len* data-bin/cnndm41.tokenized.en-de
 
 python generate.py data-bin/cnndm41.tokenized.en-de \
  --save-path 4120lenParam --path checkpoints/fconv_cnndm41/checkpoint_best.pt \
  --batch-size 128 --beam 5 --max-source-positions 500 \
  --max-target-positions 200 --max-len-b 100
+'''
 
-
-2. Arbitrary Length
-
+## Arbitrary Length
+'''
 python fortest.py 10 #10 is the desired length.
 
 python generate.py data-bin/cnndm41.tokenized.en-de \
  --save-path 4120lenParam --path checkpoints/fconv_cnndm41/checkpoint_best.pt \
  --batch-size 128 --beam 5 --max-source-positions 500 \
  --max-target-positions 200 --max-len-b 100
-
+'''
