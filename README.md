@@ -27,7 +27,10 @@ pip install -r requirments
    The preprocessed data can be downloaded from [here](https://drive.google.com/file/d/1KjzKYhpsIwBKiNZx5x-NiYQabumY3qkY/view?usp=sharing).
 2. Binary
    ```
-   python -u preprocess.py --source-lang en --target-lang de --trainpref $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test --destdir data-bin/cnndm41.tokenized.en-de --thresholdtgt 20 --thresholdsrc 20
+   python -u preprocess.py --source-lang en --target-lang de --trainpref \
+   $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test \
+   --destdir data-bin/cnndm41.tokenized.en-de \
+   --thresholdtgt 20 --thresholdsrc 20
    ```
 # Training
 ```
@@ -39,9 +42,12 @@ cp $TEXT/*.len* data-bin/cnndm41.tokenized.en-de
 
 mkdir -p checkpoints/fconv_cnndm41
 
-CUDA_VISIBLE_DEVICES=0 python -u train.py data-bin/cnndm41.tokenized.en-de --lr 0.2 --clip-norm 0.1 --dropout 0.2 --max-tokens 4000 \
-     --label-smoothing 0.1 --force-anneal 200 --save-dir checkpoints/fconv_cnndm41 --arch fconv_cnndm_en_de \
-     --skip-invalid-size-inputs-valid-test --sample-without-replacement 3850 --max-source-positions 500 --max-target-positions 200
+CUDA_VISIBLE_DEVICES=0 python -u train.py data-bin/cnndm41.tokenized.en-de \
+     --lr 0.2 --clip-norm 0.1 --dropout 0.2 --max-tokens 4000 \
+     --label-smoothing 0.1 --force-anneal 200 \
+     --save-dir checkpoints/fconv_cnndm41 --arch fconv_cnndm_en_de \
+     --skip-invalid-size-inputs-valid-test --sample-without-replacement 3850 \
+     --max-source-positions 500 --max-target-positions 200
 ```
 The pretrained model can be downloaded from [here](https://drive.google.com/file/d/176l69rwqX19-JIpib9KBczGO6fvHibVh/view?usp=sharing)
 
