@@ -74,3 +74,18 @@ python generate.py data-bin/cnndm41.tokenized.en-de \
  --batch-size 128 --beam 5 --max-source-positions 500 \
  --max-target-positions 200 --max-len-b 100
 ```
+# Citation
+```
+@inproceedings{summlen18,
+  author    = {Yizhu Liu and
+               Zhiyi Luo and
+               Kenny Q. Zhu},
+  title     = {Controlling Length in Abstractive Summarization Using a Convolutional
+               Neural Network},
+  booktitle = {Proceedings of the 2018 Conference on Empirical Methods in Natural
+               Language Processing, Brussels, Belgium, October 31 - November 4, 2018},
+  pages     = {4110--4119},
+  publisher = {Association for Computational Linguistics},
+  year      = {2018}
+}
+```
