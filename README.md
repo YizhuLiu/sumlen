@@ -3,19 +3,6 @@ This code is for EMNLP 2018 paper: [Controlling Length in Abstractive Summarizat
 
 In this paper, we propose an approach to constrain the summary length by extending a convolutional sequence to sequence model ([Paper](https://arxiv.org/abs/1705.03122), [Code(fairseq-py)](https://github.com/pytorch/fairseq)).
 
-citation:
-@inproceedings{DBLP:conf/emnlp/LiuLZ18,
-  author    = {Yizhu Liu and
-               Zhiyi Luo and
-               Kenny Q. Zhu},
-  title     = {Controlling Length in Abstractive Summarization Using a Convolutional
-               Neural Network},
-  booktitle = {Proceedings of the 2018 Conference on Empirical Methods in Natural
-               Language Processing, Brussels, Belgium, October 31 - November 4, 2018},
-  pages     = {4110--4119},
-  year      = {2018}
-}
-
 # Requirements
 PyTorch version >= 0.4.0
 Python version >= 3.6
